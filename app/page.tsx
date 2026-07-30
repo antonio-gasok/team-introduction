@@ -2,7 +2,7 @@ const proofPoints = [
   ["WEB", "Production build", "PASS"],
   ["BACKEND", "TypeScript build", "PASS"],
   ["CHAIN", "Registry tests", "5 / 5"],
-  ["GIWA", "Adapter tests", "3 / 3"],
+  ["GIWA", "Adapter tests", "5 / 5"],
 ];
 
 const capabilities = [

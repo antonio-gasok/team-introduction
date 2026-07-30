@@ -71,7 +71,7 @@ export default function TechnicalPage() {
         </div>
         <ul>
           <li>Solidity Registry 테스트 5/5 통과</li>
-          <li>백엔드 GIWA adapter 테스트 3/3 통과</li>
+          <li>백엔드 GIWA adapter 테스트 5/5 통과</li>
           <li>Hardhat 기반 GIWA Sepolia 배포·검증 스크립트</li>
           <li>도메인 팩과 분리된 범용 합의 코어</li>
         </ul>
