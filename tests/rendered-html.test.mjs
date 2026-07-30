@@ -2,13 +2,13 @@ import assert from "node:assert/strict";
 import { access, readFile, stat } from "node:fs/promises";
 import test from "node:test";
 
-async function render() {
+async function render(pathname = "/") {
   const workerUrl = new URL("../dist/server/index.js", import.meta.url);
   workerUrl.searchParams.set("test", `${process.pid}-${Date.now()}`);
   const { default: worker } = await import(workerUrl.href);
 
   return worker.fetch(
-    new Request("http://localhost/", {
+    new Request(`http://localhost${pathname}`, {
       headers: { accept: "text/html", host: "antonio.example" },
     }),
     {
@@ -34,8 +34,22 @@ test("server-renders Antonio team introduction content", async () => {
   assert.match(html, /말은 흩어져도,/);
   assert.match(html, /하나의 합의 코어/);
   assert.match(html, /이성민/);
-  assert.match(html, /https:\/\/github\.com\/antonio-gasok\/team-introduction/);
+  assert.match(html, /https:\/\/github\.com\/antonio-gasok\/antonio/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/i);
+});
+
+test("server-renders the GASOK review routes", async () => {
+  const cases = [
+    ["/demo", /실제 Antonio MVP에서 캡처/],
+    ["/technical", /AgreementAction/],
+    ["/submission", /Antonio 제출물 한곳에서 보기/],
+  ];
+
+  for (const [pathname, expected] of cases) {
+    const response = await render(pathname);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), expected);
+  }
 });
 
 test("ships site-specific metadata and social card", async () => {

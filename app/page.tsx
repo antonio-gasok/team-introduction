@@ -41,13 +41,13 @@ export default function Home() {
           ANTONIO<span className="wordmark-dot">●</span>
         </a>
         <nav aria-label="주요 메뉴">
-          <a href="#mission">Mission</a>
-          <a href="#product">Product</a>
-          <a href="#team">Team</a>
+          <a href="/demo">Demo</a>
+          <a href="/technical">Technical</a>
+          <a href="/submission">Submission</a>
         </nav>
         <a
           className="nav-cta"
-          href="https://github.com/antonio-gasok/team-introduction"
+          href="https://github.com/antonio-gasok/antonio"
           target="_blank"
           rel="noreferrer"
         >
@@ -221,11 +221,11 @@ export default function Home() {
             Antonio가 증명을 시작합니다.
           </h2>
           <a
-            href="https://github.com/antonio-gasok/team-introduction"
+          href="/submission"
             target="_blank"
             rel="noreferrer"
           >
-            VIEW OUR GITHUB <span aria-hidden="true">↗</span>
+            VIEW SUBMISSION <span aria-hidden="true">↗</span>
           </a>
         </div>
         <div className="footer-meta">
